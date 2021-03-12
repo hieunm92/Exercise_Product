@@ -1,0 +1,24 @@
+com/exercise/sevice/category/ICategoryService.java
+ com.exercise.sevice.category.ICategoryService
+com/exercise/config/AppInit.java
+ com.exercise.config.AppInit
+com/exercise/repository/ICategoryRepository.java
+ com.exercise.repository.ICategoryRepository
+com/exercise/model/Product.java
+ com.exercise.model.Product
+com/exercise/sevice/category/CategoryService.java
+ com.exercise.sevice.category.CategoryService
+com/exercise/sevice/IService.java
+ com.exercise.sevice.IService
+com/exercise/model/Category.java
+ com.exercise.model.Category
+com/exercise/config/AppConfiguation.java
+ com.exercise.config.AppConfiguation
+com/exercise/repository/IProductRepository.java
+ com.exercise.repository.IProductRepository
+com/exercise/sevice/product/IProductService.java
+ com.exercise.sevice.product.IProductService
+com/exercise/sevice/product/ProductService.java
+ com.exercise.sevice.product.ProductService
+com/exercise/controller/ProductController.java
+ com.exercise.controller.ProductController

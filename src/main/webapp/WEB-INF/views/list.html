@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <head th:replace="/layout :: head">
+</head>
+<h1>List Product</h1>
+<form th:action="@{/product/search}">
+    Search by Category:
+    <select th:name="category" th:id="category">
+        <th:block th:each="o:${Categoryname}">
+            <option th:value="${o.id}" th:text="${o.name}"></option>
+        </th:block>
+
+    </select>
+    <input type="submit" value="Search"/>
+</form>
+<br>
+<h3><a th:href="@{'/product/creat'}" role="button" class="btn btn-primary">Creat Product</a></h3>
+<table id="customers">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Quatity</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="p: ${product}" >
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.description}"></td>
+        <td th:text="${p.datetime}"></td>
+        <td th:text="${p.quatity}"></td>
+        <td th:text="${p.category.name}"></td>
+        <td>
+            <a th:href="@{'/product/edit/'+${p.id}}" role="button" class="btn btn-outline-success">Edit</a>
+            <a th:href="@{'/product/delete/'+${p.id}}"
+               onclick=" return confirm('Are you sure to delete this product ?')"
+            role="button" class="btn btn-outline-danger">Delete</a>
+        </td>
+
+    </tr>
+</table>
+<div>
+    <a th:href="@{'/product'(page=${product.number - 1})}" th:if="${product.hasPrevious()}" role="button" class="btn btn-outline-dark">Previous</a>
+    <span th:text="${product.number + 1}"></span>/<span th:text="${product.totalPages}"></span>
+    <a th:href="@{'/product'(page=${product.number + 1})}" th:if="${product.hasNext()}" role="button" class="btn btn-outline-dark">Next</a>
+</div>
+
+
+</body>
+    <footer th:replace="/layout :: footer"></footer>
+</html>
