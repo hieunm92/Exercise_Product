@@ -9,4 +9,5 @@ import java.util.List;
 public interface IProductService extends IService<Product> {
     List<Product> findProductName (String name);
     List<Product> findAllByCategory (Category name);
+    List<Product> findTop5Date();
 }

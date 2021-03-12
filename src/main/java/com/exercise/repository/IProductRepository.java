@@ -18,4 +18,6 @@ public interface IProductRepository extends JpaRepository<Product, Long> {
     List<Product> findProductName (String name);
 
     List<Product> findAllByCategory(Category name);
+
+    List<Product> findTop5ByOrderByPriceDesc();
 }

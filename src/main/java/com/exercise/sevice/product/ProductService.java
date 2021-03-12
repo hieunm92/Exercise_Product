@@ -51,4 +51,9 @@ public class ProductService implements IProductService {
     public List<Product> findAllByCategory(Category name) {
         return productRepository.findAllByCategory(name);
     }
+
+    @Override
+    public List<Product> findTop5Date() {
+        return productRepository.findTop5ByOrderByPriceDesc();
+    }
 }

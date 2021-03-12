@@ -48,7 +48,7 @@ public class ProductController {
 
     @PostMapping("/creat")
     public ModelAndView CreatProductForm(@ModelAttribute Product product) {
-        ModelAndView modelAndView = new ModelAndView("redirect: /product");
+        ModelAndView modelAndView = new ModelAndView("redirect:/product");
         iProductService.save(product);
         return modelAndView;
     }
@@ -86,5 +86,13 @@ public class ProductController {
     public ModelAndView searchByProductName(@ModelAttribute Category category) {
         List<Product> list = iProductService.findAllByCategory(category);
         return new ModelAndView("list", "product", list);
+    }
+
+    @GetMapping("/top")
+    public ModelAndView findTop5Product(){
+        List<Product> productList = iProductService.findTop5Date();
+        ModelAndView modelAndView = new ModelAndView("list");
+        modelAndView.addObject("product",productList);
+        return modelAndView;
     }
 }
